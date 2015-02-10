@@ -4,21 +4,10 @@ module Fidelius
   ##
   # Base handler for application
   class Base < Sinatra::Base
-    PASSWORD_LIST = 'passwords.txt'
+    include Fidelius::List
 
     get '/' do
-      redirect to("/user/#{DEFAULT_USER}"), 307
-    end
-
-    get %r{^/user/([\w-]+)$} do |user|
-      status_message(user)
-    end
-
-    post '/sms' do
-      @user = guess_user params[:From], params[:Body]
-      Twilio::TwiML::Response.new do |r|
-        r.Message status_message(user)
-      end.text
+      "I know about #{password_list.size} passwords"
     end
   end
 end
