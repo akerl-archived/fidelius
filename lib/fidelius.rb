@@ -1,5 +1,7 @@
 require 'sinatra/base'
 
+require 'lib/fidelius/list'
+
 module Fidelius
   ##
   # Base handler for application
