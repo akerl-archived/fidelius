@@ -9,7 +9,7 @@ module Fidelius
     include Fidelius::List
 
     get '/' do
-      "I know about #{password_list.size} passwords"
+      "I know about #{PASSWORD_LIST.size} passwords"
     end
   end
 end

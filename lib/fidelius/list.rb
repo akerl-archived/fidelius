@@ -5,12 +5,17 @@ module Fidelius
   module List
     PASSWORD_FILE = 'passwords.txt'
     PASSWORD_VERSION = 'v0.0.0'
+    PASSWORD_LIST = Set.new
 
-    def password_list
-      @password_list ||= open(password_url) do |fh|
-        fh.each_line.each_with_object(Set.new) do |line, set|
+    def self.included(_)
+      load_password_list
+    end
+
+    def self.load_password_list
+      open(password_url) do |fh|
+        fh.each_line do |line, set|
           begin
-            set << line.strip
+            PASSWORD_LIST << line.strip
           rescue ArgumentError
             nil
           end
@@ -18,7 +23,7 @@ module Fidelius
       end
     end
 
-    def password_url
+    def self.password_url
       [
         'https://github.com/akerl/fidelius/releases/download',
         PASSWORD_VERSION,
