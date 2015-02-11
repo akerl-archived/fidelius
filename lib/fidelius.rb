@@ -17,6 +17,7 @@ module Fidelius
   class Base < Sinatra::Base
     set :views, 'views'
     set :public_folder, 'public'
+    enable :logging
 
     get '/' do
       @result = nil
@@ -25,6 +26,7 @@ module Fidelius
 
     post '/' do
       redirect('/') unless params.include? 'password'
+      logger.info "Checking #{params['password']}"
       @result = validate params['password']
       erb :index
     end
@@ -37,6 +39,7 @@ module Fidelius
     post '/api' do
       headers 'Content-Type': 'application/json'
       halt(400, erb(:missing_password)) unless params.include? 'password'
+      logger.info "Checking #{params['password']}"
       @result = validate params['password']
       erb :api_result
     end
