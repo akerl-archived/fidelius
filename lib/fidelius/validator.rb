@@ -1,12 +1,10 @@
 module Fidelius
-  Result = Struct.new(:safe, :reason)
-
   class Validator
     def initialize(_ = {})
     end
 
     def validate(_)
-      Result.new false, 'This site is broken'
+      { safe: false, reason: 'This site is broken' }
     end
   end
 end

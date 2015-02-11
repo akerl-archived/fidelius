@@ -8,17 +8,17 @@ module Fidelius
     end
 
     def validate(password)
-      return Result.new(true) unless list.include(password)
-      Result.new false, 'Password included in compromised lists'
+      return { safe: true } unless list.include? password
+      { safe: false, reason: 'Password included in compromised lists' }
     end
 
     private
 
     def list
       @list = open(@uri) do |fh|
-        fh.each_line do |line, set|
+        fh.each_line.each_with_object(Set.new) do |line, set|
           begin
-            PASSWORD_LIST << line.strip
+            set << line.strip
           rescue ArgumentError
             nil
           end
