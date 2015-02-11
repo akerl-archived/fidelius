@@ -15,7 +15,7 @@ module Fidelius
     private
 
     def list
-      @list = open(@uri) do |fh|
+      @list ||= open(@uri) do |fh|
         fh.each_line.each_with_object(Set.new) do |line, set|
           begin
             set << line.strip

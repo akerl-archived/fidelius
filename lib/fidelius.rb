@@ -7,18 +7,24 @@ require 'lib/fidelius/zxcvbn'
 require 'json'
 
 module Fidelius
+  VALIDATORS = [
+    Fidelius::List.new(uri: 'https://github.com/akerl/fidelius/releases/download/v0.0.0/passwords.txt'),
+    Fidelius::Zxcvbn.new
+  ]
+
   ##
   # Base handler for application
   class Base < Sinatra::Base
-    VALIDATORS = [
-      Fidelius::List.new(uri: 'https://github.com/akerl/fidelius/releases/download/v0.0.0/passwords.txt'),
-      Fidelius::Zxcvbn.new
-    ]
-
     set :views, 'views'
 
     get '/' do
       erb :index
+    end
+
+    post '/' do
+      redirect('/') unless params.include? 'password'
+      @result = validate params['password']
+      erb :html_result
     end
 
     get '/api' do
