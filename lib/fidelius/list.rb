@@ -2,17 +2,20 @@ require 'open-uri'
 require 'set'
 
 module Fidelius
-  module List
-    PASSWORD_FILE = 'passwords.txt'
-    PASSWORD_VERSION = 'v0.0.0'
-    PASSWORD_LIST = Set.new
-
-    def self.included(_)
-      load_password_list
+  class List < Validator
+    def initialize(params = {})
+      @uri = params[:uri] || fail('No source provided for list')
     end
 
-    def self.load_password_list
-      open(password_url) do |fh|
+    def validate(password)
+      return Result.new(true) unless list.include(password)
+      Result.new false, 'Password included in compromised lists'
+    end
+
+    private
+
+    def list
+      @list = open(@uri) do |fh|
         fh.each_line do |line, set|
           begin
             PASSWORD_LIST << line.strip
@@ -21,14 +24,6 @@ module Fidelius
           end
         end
       end
-    end
-
-    def self.password_url
-      [
-        'https://github.com/akerl/fidelius/releases/download',
-        PASSWORD_VERSION,
-        PASSWORD_FILE
-      ].join('/')
     end
   end
 end
