@@ -1,0 +1,48 @@
+body {
+    margin-top: 60px;
+    background-color: #FAF5EA;
+}
+
+.navbar {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.navbar i {
+    line-height: 25px;
+}
+
+.row p {
+    line-height: 1.1em;
+    text-align: justify;
+}
+
+.center {
+    text-align: center;
+}
+
+.row label, .row input, .row button {
+    font-size: 1.5em;
+}
+
+.alert {
+    text-align: center;
+}
+
+.alert li {
+    list-style-type: none;
+}
+
+.alert.danger {
+    background-color: #fa7a8b;
+}
+
+.alert.success {
+    background-color: #10e353;
+}
+
+@media (max-width: 480px) {
+    .tagline {
+        display: none;
+    }
+}

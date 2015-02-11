@@ -16,15 +16,17 @@ module Fidelius
   # Base handler for application
   class Base < Sinatra::Base
     set :views, 'views'
+    set :public_folder, 'public'
 
     get '/' do
+      @result = nil
       erb :index
     end
 
     post '/' do
       redirect('/') unless params.include? 'password'
       @result = validate params['password']
-      erb :html_result
+      erb :index
     end
 
     get '/api' do

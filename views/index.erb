@@ -1,1 +1,64 @@
-Hello world
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Password Security Check</title>
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
+        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/assets/bijou/css/bijou.min.css">
+        <link rel="stylesheet" type="text/css" href="/assets/custom/css/custom.css">
+    </head>
+    <body>
+        <div class="navbar fixed">
+            <h4 class="pull-left">Check your password<span class=tagline> strength</span>!</h4>
+            <ul class="pull-right">
+                <li><a href="https://github.com/akerl/fidelius">
+                    <i class="fa fa-github-square fa-3x" title="github.com/akerl" aria-hidden="true"></i>
+                </a></li>
+                <li><a href="https://twitter.com/akerl">
+                    <i class="fa fa-twitter-square fa-3x" title="twitter.com/akerl" aria-hidden="true"></i>
+                </a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="span twelve">
+                    <p>In the wake of recent service compromises, this site allows you to quickly check passwords to determine if they've been leaked. It offers this browser-based portal as well as a JSON API, documented below. Of course, it's not possible to be 100% sure a password hasn't leaked, but the data here aims to give a best-effort assessment. In addition, <a href="https://github.com/envato/zxcvbn-ruby">the zxcvbn-ruby library</a> is used to identify passwords that are low-entropy or otherwise vulnerable to brute-forcing.</p>
+                </div>
+            </div>
+<% if @result %>
+  <% state = @result[:safe] ? 'success' : 'danger' %>
+  <% keyword = @result[:safe] ? 'safe' : 'compromised' %>
+            <div class="alert <%= state %>">
+                <h4>Your password is: <%= keyword %></h4>
+    <% unless @result[:safe] %>
+                <ul>
+      <% @result[:reasons].each do |reason| %>
+                    <li><%= reason %></li>
+      <% end %>
+                </ul>
+    <% end %>
+            </div>
+<% end %>
+            <form method="POST" action="/">
+                <div class="row">
+                    <div class="span twelve center">
+                        <label for="password">Enter your password:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span twelve center">
+                        <input id="password" name="password" type="password" \>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span twelve center">
+                        <button type="submit" id="submit" class="button success large">Check!</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
+
