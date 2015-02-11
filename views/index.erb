@@ -58,6 +58,20 @@
                     </div>
                 </div>
             </form>
+            <div class="row"></div><div class="row"></div>
+            <div class="row">
+                <div class="span twelve center">
+                    <h3>API Access</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span twelve">
+                    <p>The API accepts POST requests at /api with a "password" parameter, and returns a JSON object with a "safe" key and an optional "reasons" array. The "safe" key will be either boolean true or false, to identify if the provided password is believed to be safe. If the password is believed to be unsafe, "reasons" will be an array of strings indicating why. For example:</p>
+                    <script src="https://gist.github.com/akerl/a68a5fd7d05c7ae2ab39.js"></script>
+                    <p>If you do not sent a password parameter, the API will respond a 400 error and a JSON object where "safe" is false, with an explanation in the "reasons" array. If you send a GET request, the JSON object will be similar, but a 405 code will be used:</p>
+                    <script src="https://gist.github.com/akerl/a36ef0ec398e8d0bd7f5.js"></script>
+                </div>
+            </div>
         </div>
     </body>
 </html>

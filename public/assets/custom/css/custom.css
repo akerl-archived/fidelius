@@ -41,6 +41,10 @@ body {
     background-color: #10e353;
 }
 
+.gist {
+    padding: 15px;
+}
+
 @media (max-width: 480px) {
     .tagline {
         display: none;
