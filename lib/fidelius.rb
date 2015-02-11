@@ -3,13 +3,15 @@ require 'sinatra/base'
 require 'lib/fidelius/validator'
 require 'lib/fidelius/list'
 require 'lib/fidelius/zxcvbn'
+require 'lib/fidelius/history'
 
 require 'json'
 
 module Fidelius
   VALIDATORS = [
     Fidelius::List.new(uri: 'https://github.com/akerl/fidelius/releases/download/v0.0.0/passwords.txt'),
-    Fidelius::Zxcvbn.new
+    Fidelius::Zxcvbn.new,
+    Fidelius::History.new
   ]
 
   ##
