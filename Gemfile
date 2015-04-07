@@ -6,7 +6,7 @@ gem 'zxcvbn-ruby', '~> 0.0.2'
 gem 'redis', '~> 3.2.0'
 
 group :development do
-  gem 'rubocop', '~> 0.29.0'
+  gem 'rubocop', '~> 0.30.0'
   gem 'rake', '~> 10.4.0'
   gem 'coveralls', '~> 0.8.0'
   gem 'rspec', '~> 3.2.0'
