@@ -2,9 +2,9 @@ fidelius
 =========
 
 [![Dependency Status](https://img.shields.io/gemnasium/akerl/fidelius.svg)](https://gemnasium.com/akerl/fidelius)
-[![Code Climate](https://img.shields.io/codeclimate/github/akerl/fidelius.svg)](https://codeclimate.com/github/akerl/fidelius)
-[![Coverage Status](https://img.shields.io/coveralls/akerl/fidelius.svg)](https://coveralls.io/r/akerl/fidelius)
-[![Build Status](https://img.shields.io/travis/akerl/fidelius.svg)](https://travis-ci.org/akerl/fidelius)
+[![Build Status](https://img.shields.io/circleci/project/akerl/fidelius.svg)](https://circleci.com/gh/akerl/fidelius)
+[![Coverage Status](https://img.shields.io/codecov/c/github/akerl/fidelius.svg)](https://codecov.io/github/akerl/fidelius)
+[![Code Quality](https://img.shields.io/codacy/6ca6971ad8c74fa794aa296e2ca4316e.svg)](https://www.codacy.com/app/akerl/fidelius)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://tldrlegal.com/license/mit-license)
 
 Password strength checking API, inspired by [this HackerNews comment](https://news.ycombinator.com/item?id=9025017)
