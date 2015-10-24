@@ -1,4 +1,6 @@
 module Fidelius
+  ##
+  # Helper class for templating validators
   class Validator
     def initialize(_ = {})
     end

@@ -7,6 +7,8 @@ require 'lib/fidelius/history'
 
 require 'json'
 
+##
+# Base Fidelius class to combine validators
 module Fidelius
   VALIDATORS = [
     Fidelius::List.new(uri: 'https://github.com/akerl/fidelius/releases/download/v0.0.0/passwords.txt'),

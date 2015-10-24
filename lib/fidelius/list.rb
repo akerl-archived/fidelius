@@ -2,6 +2,9 @@ require 'open-uri'
 require 'set'
 
 module Fidelius
+  ##
+  # List validator
+  # Uses leaked password list to match against input
   class List < Validator
     def initialize(params = {})
       @uri = params[:uri] || fail('No source provided for list')

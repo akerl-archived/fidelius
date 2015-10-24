@@ -1,7 +1,13 @@
 require 'redis'
 
 module Fidelius
+  ##
+  # Add historical validator
+  # Uses a redis DB to identify previously identified passwords
   class History < Validator
+    REASON = 'This password has been logged on a' \
+      '3rd party password checking site'
+
     def initialize(params = {})
       @redis = Redis.new(params)
     end
@@ -11,7 +17,7 @@ module Fidelius
       return { safe: true } unless @redis.exists password
       {
         safe: false,
-        reason: 'This password has been logged on a 3rd party password checking site'
+        reason: REASON
       }
     rescue Redis::CannotConnectError
       { safe: true }

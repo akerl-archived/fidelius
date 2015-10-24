@@ -1,6 +1,9 @@
 require 'zxcvbn'
 
 module Fidelius
+  ##
+  # Complexity validator
+  # Checks password for repetition, patterns, and other weakness
   class Zxcvbn < Validator
     def validate(password)
       results = ::Zxcvbn.test(password)
