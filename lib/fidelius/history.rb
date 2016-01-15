@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'redis'
 
 module Fidelius
@@ -6,7 +7,7 @@ module Fidelius
   # Uses a redis DB to identify previously identified passwords
   class History < Validator
     REASON = 'This password has been logged on a' \
-      '3rd party password checking site'
+      '3rd party password checking site'.freeze
 
     def initialize(params = {})
       @redis = Redis.new(params)

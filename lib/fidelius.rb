@@ -14,7 +14,7 @@ module Fidelius
     Fidelius::List.new(uri: 'https://github.com/akerl/fidelius/releases/download/v0.0.0/passwords.txt'),
     Fidelius::Zxcvbn.new,
     Fidelius::History.new
-  ]
+  ].freeze
 
   ##
   # Base handler for application
@@ -36,12 +36,12 @@ module Fidelius
     end
 
     get '/api' do
-      headers 'Content-Type': 'application/json'
+      headers 'Content-Type' => 'application/json'
       halt 405, erb(:post_not_get)
     end
 
     post '/api' do
-      headers 'Content-Type': 'application/json'
+      headers 'Content-Type' => 'application/json'
       halt(400, erb(:missing_password)) unless params.include? 'password'
       logger.info "Checking #{params['password']}"
       @result = validate params['password']
