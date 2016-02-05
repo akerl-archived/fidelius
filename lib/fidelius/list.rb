@@ -7,7 +7,7 @@ module Fidelius
   # Uses leaked password list to match against input
   class List < Validator
     def initialize(params = {})
-      @uri = params[:uri] || fail('No source provided for list')
+      @uri = params[:uri] || raise('No source provided for list')
     end
 
     def validate(password)
