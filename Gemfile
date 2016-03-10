@@ -7,7 +7,7 @@ gem 'zxcvbn-ruby', '~> 0.1.0'
 gem 'redis', '~> 3.2.0'
 
 group :development do
-  gem 'rubocop', '~> 0.37.0'
+  gem 'rubocop', '~> 0.38.0'
   gem 'rake', '~> 11.0.0'
   gem 'codecov', '~> 0.1.1'
   gem 'rspec', '~> 3.4.0'
