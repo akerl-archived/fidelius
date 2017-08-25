@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'sinatra', '~> 2.0.0'
 gem 'thin', '~> 1.7.0'
 gem 'zxcvbn-ruby', '~> 0.1.0'
-gem 'redis', '~> 3.3.0'
+gem 'redis', '~> 4.0.0'
 
 group :development do
   gem 'rubocop', '~> 0.49.0'
