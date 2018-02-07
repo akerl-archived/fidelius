@@ -20,11 +20,9 @@ module Fidelius
     def list
       @list ||= open(@uri) do |fh|
         fh.each_line.each_with_object(Set.new) do |line, set|
-          begin
-            set << line.strip
-          rescue ArgumentError
-            nil
-          end
+          set << line.strip
+        rescue ArgumentError
+          nil
         end
       end
     end
