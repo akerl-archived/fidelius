@@ -18,7 +18,7 @@ module Fidelius
     private
 
     def list
-      @list ||= open(@uri) do |fh|
+      @list ||= open(@uri) do |fh| # rubocop:disable Security/Open
         fh.each_line.each_with_object(Set.new) do |line, set|
           set << line.strip
         rescue ArgumentError
