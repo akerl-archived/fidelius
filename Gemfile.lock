@@ -18,7 +18,7 @@ GEM
     json (2.1.0)
     mustermann (1.0.2)
     parallel (1.12.1)
-    parser (2.5.0.4)
+    parser (2.5.0.5)
       ast (~> 2.4.0)
     powerpack (0.1.1)
     rack (2.0.4)
@@ -83,7 +83,7 @@ DEPENDENCIES
   zxcvbn-ruby (~> 0.1.0)
 
 RUBY VERSION
-   ruby 2.5.0p0
+   ruby 2.5.1p57
 
 BUNDLED WITH
    1.16.1
