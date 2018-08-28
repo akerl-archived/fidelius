@@ -1,7 +1,7 @@
 fidelius
 =========
 
-[![Build Status](https://img.shields.io/circleci/project/akerl/fidelius/master.svg)](https://circleci.com/gh/akerl/fidelius)
+[![Build Status](https://img.shields.io/travis/com/akerl/fidelius.svg)](https://travis-ci.com/akerl/fidelius)
 [![Coverage Status](https://img.shields.io/codecov/c/github/akerl/fidelius.svg)](https://codecov.io/github/akerl/fidelius)
 [![Code Quality](https://img.shields.io/codacy/6ca6971ad8c74fa794aa296e2ca4316e.svg)](https://www.codacy.com/app/akerl/fidelius)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://tldrlegal.com/license/mit-license)
